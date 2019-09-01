@@ -4,8 +4,8 @@ import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 
 const GET_POKEMON_DETAIL = gql`
-  query {
-    pokemon(name: "Charmander") {
+  query($name: String!) {
+    pokemon(name: $name) {
       image
       name
       attacks {
@@ -17,8 +17,12 @@ const GET_POKEMON_DETAIL = gql`
   }
 `;
 
-const Details = () => {
-  const { loading, error, data } = useQuery(GET_POKEMON_DETAIL);
+const Details = ({ match }) => {
+  const { name } = match.params;
+  console.log(name);
+  const { loading, error, data } = useQuery(GET_POKEMON_DETAIL, {
+    variables: { name },
+  });
 
   console.log(data);
   const { pokemon } = data;
