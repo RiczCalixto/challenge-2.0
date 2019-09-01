@@ -1,6 +1,7 @@
 import React from 'react';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
+import { Link } from 'react-router-dom';
 
 const GET_POKEMONS_LIST = gql`
   query {
@@ -29,6 +30,9 @@ const List = () => {
             <li>
               {pokemon.number} {pokemon.name}
             </li>
+            <Link to={`/details/${pokemon.name}`}>
+              Visualizar este pokemon.
+            </Link>
           </div>
         ))}
       </ul>
