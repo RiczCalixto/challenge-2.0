@@ -14,16 +14,26 @@ const GET_POKEMONS_LIST = gql`
 
 const List = () => {
   const { loading, error, data } = useQuery(GET_POKEMONS_LIST);
-  console.log(data);
-  console.log(data.pokemons);
 
   const { pokemons } = data;
-  console.log(pokemons);
 
   if (loading) return <h1>Carregando ...</h1>;
   if (error) return <h1>Erro ... =(</h1>;
 
-  return <>Hello from list !</>;
+  return (
+    <>
+      <ul>
+        {pokemons.map(pokemon => (
+          <div key={pokemon.number}>
+            <img src={pokemon.image} alt={pokemon.name} />
+            <li>
+              {pokemon.number} {pokemon.name}
+            </li>
+          </div>
+        ))}
+      </ul>
+    </>
+  );
 };
 
 export default List;
