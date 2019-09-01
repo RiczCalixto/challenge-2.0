@@ -30,7 +30,7 @@ const List = () => {
             <li>
               {pokemon.number} {pokemon.name}
             </li>
-            <Link to={`/details/${pokemon.name}`}>
+            <Link to={`/details/${pokemon.name}`} style={{ color: 'white' }}>
               Visualizar este pokemon.
             </Link>
           </div>
