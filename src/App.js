@@ -1,14 +1,16 @@
 import React from 'react';
+import { ApolloProvider } from '@apollo/react-hooks';
 import GlobalStyles from './globalStyles';
-import List from './pages/List';
+import AppRouter from './routes';
+import client from './services/apollo';
 
-const App = () => {
-  return (
-    <>
-      <GlobalStyles />
-      <List />
-    </>
-  );
-};
+const App = () => (
+  <>
+    <GlobalStyles />
+    <ApolloProvider client={client}>
+      <AppRouter />
+    </ApolloProvider>
+  </>
+);
 
 export default App;
