@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
 
     html, body, #pokeApp {
       height: 100%;
+
     }
 
     body{
@@ -17,6 +18,8 @@ const GlobalStyles = createGlobalStyle`
       background: #353535;
       color: #FFFF;
       font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+
     }
   }
 `;
