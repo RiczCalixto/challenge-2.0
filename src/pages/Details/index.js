@@ -22,14 +22,26 @@ const Details = () => {
 
   console.log(data);
   const { pokemon } = data;
-  console.log(pokemon);
 
   if (loading) return <h1>Carregando ...</h1>;
   if (error) return <h1>Erro ... =(</h1>;
 
+  console.log(pokemon.image);
+  console.log(pokemon.name);
+  console.log(pokemon.attacks);
   return (
     <>
-      Hello from detail page!
+      <section>
+        <img src={pokemon.image} alt={pokemon.name} />
+        <p>{pokemon.name}</p>
+        <ul>
+          Ataques especiais:{' '}
+          {pokemon.attacks.special.map(atk => (
+            <li key={atk.name}>{atk.name}</li>
+          ))}
+        </ul>
+      </section>
+
       <Link to="/" style={{ color: 'white' }}>
         Retornar para a lista.
       </Link>
