@@ -16,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
       -webkit-font-smoothing: antialiased !important;
       background: #353535;
       color: #FFFF;
+      font-family: Arial, Helvetica, sans-serif;
     }
   }
 `;
