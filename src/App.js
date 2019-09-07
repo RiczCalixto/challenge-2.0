@@ -6,8 +6,8 @@ import client from './services/apollo';
 
 const App = () => (
   <>
-    <GlobalStyles />
     <ApolloProvider client={client}>
+      <GlobalStyles />
       <AppRouter />
     </ApolloProvider>
   </>

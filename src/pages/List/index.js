@@ -18,26 +18,26 @@ const List = () => {
   const { loading, error, data } = useQuery(GET_POKEMONS_LIST);
   const { pokemons } = data;
 
-  if (loading) return <h1>Carregando ...</h1>;
   if (error) return <h1>Erro ... =(</h1>;
 
   return (
     <Container>
-      <ul>
-        {pokemons.map(pokemon => (
+      {loading ? (
+        <div>Carregando ...</div>
+      ) : (
+        pokemons.map(pokemon => (
           <div key={pokemon.number}>
             <img src={pokemon.image} alt={pokemon.name} />
-            <li>
+            <span>
               {pokemon.number} {pokemon.name}
-            </li>
-            <div>
-              <Link to={`/details/${pokemon.name}`} style={{ color: 'white' }}>
-                Visualizar este pokemon.
-              </Link>
-            </div>
+            </span>
+            <br />
+            <Link to={`/details/${pokemon.name}`} style={{ color: 'white' }}>
+              Visualizar este pokemon
+            </Link>
           </div>
-        ))}
-      </ul>
+        ))
+      )}
     </Container>
   );
 };
