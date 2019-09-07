@@ -1,41 +1,32 @@
 import React from 'react';
-import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
-import { Link } from 'react-router-dom';
 import { Container } from './listStyles';
-
-const GET_POKEMONS_LIST = gql`
-  query {
-    pokemons(first: 50) {
-      image
-      number
-      name
-    }
-  }
-`;
+import Pokemons from '../../components/pokemons';
+import Loading from '../../components/loading';
+import Error from '../../components/error';
+import GET_POKEMONS_LIST from '../../queries/pkList';
 
 const List = () => {
   const { loading, error, data } = useQuery(GET_POKEMONS_LIST);
   const { pokemons } = data;
 
-  if (error) return <h1>Erro ... =(</h1>;
+  if (error)
+    return (
+      <Container>
+        <Error />
+      </Container>
+    );
+
+  if (loading)
+    return (
+      <Container>
+        <Loading />
+      </Container>
+    );
 
   return (
     <Container>
-      {loading ? (
-        <h1>Carregando ...</h1>
-      ) : (
-        pokemons.map(pokemon => (
-          <div key={pokemon.number}>
-            <img src={pokemon.image} alt={pokemon.name} />
-            <span>
-              {pokemon.number} {pokemon.name}
-            </span>
-            <br />
-            <Link to={`/details/${pokemon.name}`}>Visualizar este pokemon</Link>
-          </div>
-        ))
-      )}
+      <Pokemons pokemons={pokemons} />
     </Container>
   );
 };
