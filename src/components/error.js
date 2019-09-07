@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Error = () => {
-  return <h1>Não foi possível acessar a API =(</h1>;
+  return <h2>Não foi possível acessar a API =(</h2>;
 };
 
 export default Error;

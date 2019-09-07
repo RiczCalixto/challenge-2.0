@@ -5,11 +5,11 @@ const Pokemons = ({ pokemons }) => {
   return pokemons.map(pokemon => (
     <div key={pokemon.number}>
       <img src={pokemon.image} alt={pokemon.name} />
-      <span>
-        {pokemon.number} {pokemon.name}
-      </span>
-      <br />
-      <Link to={`/details/${pokemon.name}`}>Visualizar este pokemon</Link>
+      <Link to={`/details/${pokemon.name}`}>
+        <span>
+          {pokemon.number} {pokemon.name}
+        </span>
+      </Link>
     </div>
   ));
 };

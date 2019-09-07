@@ -13,11 +13,6 @@ const GlobalStyles = createGlobalStyle`
       color: #FFFF;
       font-family: Arial, Helvetica, sans-serif;
     }
-    #pokeApp{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
   }
 `;
 
