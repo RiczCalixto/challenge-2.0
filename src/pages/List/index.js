@@ -13,7 +13,7 @@ const List = () => {
   if (error)
     return (
       <Container>
-        <Error />
+        <Error error={error} />
       </Container>
     );
 

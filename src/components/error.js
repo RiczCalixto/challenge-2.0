@@ -1,7 +1,14 @@
 import React from 'react';
 
-const Error = () => {
-  return <h2>Não foi possível acessar a API =(</h2>;
+const Error = ({ error }) => {
+  return (
+    <pre>
+      Bad:{' '}
+      {error.graphQLErrors.map(({ message }, i) => (
+        <span key={i}>{message}</span>
+      ))}
+    </pre>
+  );
 };
 
 export default Error;

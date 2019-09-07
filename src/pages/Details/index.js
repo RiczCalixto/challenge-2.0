@@ -10,13 +10,14 @@ const Details = ({ match }) => {
   const { name } = match.params;
   const { loading, error, data } = useQuery(GET_POKEMON_DETAIL, {
     variables: { name },
+    errorPolicy: 'all',
   });
   const { pokemon } = data;
 
   if (error)
     return (
       <Container>
-        <Error />
+        <Error error={error} />
       </Container>
     );
 
