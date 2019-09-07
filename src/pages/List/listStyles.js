@@ -8,6 +8,11 @@ export const Container = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 
+  a {
+    font-size: 20px;
+    color: white;
+  }
+
   img {
     border-radius: 50%;
     height: 100%;
@@ -23,8 +28,9 @@ export const Container = styled.div`
 
   div {
     max-width: 126px;
-    height: 150px;
-    margin: 50px 50px 50px 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 25px;
     flex-direction: column;
     @media (max-width: 768px) {
       text-align: center;

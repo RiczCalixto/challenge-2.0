@@ -1,21 +1,28 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 20%;
-  padding: 0.5%;
-  text-align: center;
-
-  li {
-    list-style: none;
-    display: inline-block;
-    justify-content: space-between;
+  div {
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   img {
     border-radius: 20%;
-    max-width: 230;
-    max-height: 230px;
-    width: auto;
-    height: auto;
+    padding: 60px;
+    max-height: 400px;
+  }
+  ul {
+    font-size: 20px;
+  }
+  li {
+    list-style: none;
+    padding: 10px;
+  }
+  a {
+    font-size: 20px;
+    color: white;
   }
 `;

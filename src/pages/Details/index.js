@@ -30,20 +30,23 @@ const Details = ({ match }) => {
 
   return (
     <Container>
-      <img src={pokemon.image} alt={pokemon.name} />
-      <p>Nome: {pokemon.name}</p>
-      <ul>
-        Ataques especiais:{' '}
-        {pokemon.attacks.special.map(atk => (
-          <li key={atk.name}>
-            {atk.name} <br />
-          </li>
-        ))}
-      </ul>
-
-      <Link to="/" style={{ color: 'white' }}>
-        Retornar para a lista.
-      </Link>
+      {loading ? (
+        <h1>Carregando ...</h1>
+      ) : (
+        <div>
+          <h1>{pokemon.name}</h1>
+          <img src={pokemon.image} alt={pokemon.name} />
+          <ul>
+            Ataques especiais:{' '}
+            {pokemon.attacks.special.map(atk => (
+              <li key={atk.name}>
+                {atk.name} <br />
+              </li>
+            ))}
+          </ul>
+          <Link to="/">Retornar para a lista.</Link>
+        </div>
+      )}
     </Container>
   );
 };

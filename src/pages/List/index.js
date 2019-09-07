@@ -23,7 +23,7 @@ const List = () => {
   return (
     <Container>
       {loading ? (
-        <div>Carregando ...</div>
+        <h1>Carregando ...</h1>
       ) : (
         pokemons.map(pokemon => (
           <div key={pokemon.number}>
@@ -32,9 +32,7 @@ const List = () => {
               {pokemon.number} {pokemon.name}
             </span>
             <br />
-            <Link to={`/details/${pokemon.name}`} style={{ color: 'white' }}>
-              Visualizar este pokemon
-            </Link>
+            <Link to={`/details/${pokemon.name}`}>Visualizar este pokemon</Link>
           </div>
         ))
       )}
